@@ -1,0 +1,5 @@
+library(RJDBC)
+drv<-JDBC("com.ibm.db2.jcc.DB2Driver","D:/Program Files/IBM/SQLLIB/java/db2jcc.jar",identifier.quote="\"")
+conn <- dbConnect(drv, "jdbc:db2://127.0.0.1:50000/SAMPLE","administrator","ctl7220fe")
+tmp <- dbSendQuery(conn, "select ETL_DATE,FLAG from tmp")
+dbFetch(tmp)
